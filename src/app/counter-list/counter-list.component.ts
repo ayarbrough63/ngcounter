@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Counter } from '../counter';
 
 @Component({
   selector: 'counter-list',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CounterListComponent implements OnInit {
 
-  counters:number[];
-  superCounters:number[];
+  counters:Counter[];
+  superCounters:Counter[];
 
   constructor() { 
     this.counters = [];
@@ -18,11 +19,20 @@ export class CounterListComponent implements OnInit {
   AddCounter() {
     
     if (this.counters.length === 6) {
-      this.superCounters.push (0)
+      let sumOfCounters = 0;
+      for (const ctr of this.counters) {
+        console.log(ctr.value)
+        sumOfCounters += ctr.value
+      }
+      const superCounter = new Counter();
+      superCounter.value = sumOfCounters;
+      this.superCounters.push (superCounter)
+      console.log(sumOfCounters)
       this.counters = []
-      console.log('Super')
     } else {
-      this.counters.push(0);
+      const counter = new Counter();
+      counter.value = 0;
+      this.counters.push(counter);
       console.log('\'Nuther')
     }
   }

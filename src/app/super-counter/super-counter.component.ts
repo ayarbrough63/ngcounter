@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Counter } from '../counter';
 
 @Component({
   selector: 'super-counter',
@@ -7,25 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuperCounterComponent implements OnInit {
 
-  count:number;
+  @Input() count:Counter;
   disabled:boolean;
   
   constructor() {
-    this.count = 0;
     this.disabled = true;
    }
 
   
   increment( ) {
-    this.count += 3;
+    this.count.value += 3;
     this.disabled = false;
   }
 
   decrement() {
-    if (this.count === 0) return; 
-    this.count-=3;
-    if (this.count <= 0) {
-      this.count = 0
+    if (this.count.value === 0) return; 
+    this.count.value -= 3;
+    if (this.count.value <= 0) {
+      this.count.value = 0
       this.disabled = true;
     }
   }
