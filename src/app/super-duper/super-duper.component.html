@@ -1,9 +1,12 @@
-<div style="display:flex;  align-items: center; flex-flow: column; border: 2px solid black; background-color: cadetblue;">
+<div style="display:flex;  align-items: center; flex-flow: column; border: 2px solid black; background-color: darkred;">
   <h1 >
       {{ count.value }}
   </h1>
   <div style="display:flex;  align-content: center;">
       <button (click)="decrement()" [disabled]="disabled">-</button>
       <button (click)="increment()">+</button>
+  </div>
+  <div>
+    <button (click)="start()">Start</button>
   </div>
 </div>
