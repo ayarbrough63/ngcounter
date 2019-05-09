@@ -1,7 +1,7 @@
-<div style="display:flex;  align-items: center; flex-flow: column;">
+<div style="display:flex;  align-items: center; flex-flow: column; width: 100%">
   <div><button (click)="AddCounter()">Add Counter</button></div>
-  <counter-detail [count]="count" *ngFor="let count of counters"></counter-detail>
-  <super-counter [count]="super" *ngFor="let super of superCounters"></super-counter>
-  <super-duper [count]="superDuper" *ngFor="let superDuper of superDuperCounters"></super-duper>
-  <colossal-counter [count]="colossal" *ngFor="let colossal of colossalCounters"></colossal-counter>
+  <counter-detail class="counter" [count]="count" *ngFor="let count of counters"></counter-detail>
+  <super-counter class="super" [count]="super" *ngFor="let super of superCounters"></super-counter>
+  <super-duper class="super-duper" [count]="superDuper" *ngFor="let superDuper of superDuperCounters"></super-duper>
+  <colossal-counter class="colossal" [count]="colossal" *ngFor="let colossal of colossalCounters"></colossal-counter>
 </div>

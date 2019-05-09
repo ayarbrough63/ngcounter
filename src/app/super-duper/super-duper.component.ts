@@ -10,15 +10,20 @@ export class SuperDuperComponent implements OnInit {
 
   @Input() count:Counter;
   disabled:boolean;
+  started:boolean = false;
   
   constructor() {
     this.disabled = true;
    }
 
   start() {
+    if (this.started) return;
+
     setInterval(() => {
       this.count.value++
     },1000)
+
+    this.started = true;
   }
   
   increment( ) {
