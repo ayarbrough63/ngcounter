@@ -7,6 +7,7 @@ import { CounterListComponent } from './counter-list/counter-list.component';
 import { CounterDetailComponent } from './counter-detail/counter-detail.component';
 import { SuperCounterComponent } from './super-counter/super-counter.component';
 import { SuperDuperComponent } from './super-duper/super-duper.component';
+import { ColossalComponent } from './colossal/colossal.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SuperDuperComponent } from './super-duper/super-duper.component';
     CounterListComponent,
     CounterDetailComponent,
     SuperCounterComponent,
-    SuperDuperComponent
+    SuperDuperComponent,
+    ColossalComponent
   ],
   imports: [
     BrowserModule,
