@@ -18,6 +18,7 @@ export class CounterListComponent implements OnInit {
     this.superCounters = [];
     this.superDuperCounters = [];
     this.colossalCounters = [];
+    
   }
 
   AddCounter() {
@@ -25,15 +26,25 @@ export class CounterListComponent implements OnInit {
       if (this.superCounters.length === 3) {
         if (this.superDuperCounters.length === 3) {
           this.incrementColossalCounters()
+          this.makeSound()
         } else {
           this.incrementSuperDuperCounters()
+          this.makeSound()
         }
       } else {
         this.incrementSuperCounters()
+        this.makeSound()
       }
     } else {
       this.incrementCounters()
     }
+  }
+
+  makeSound() {
+    let audio = new Audio();
+    audio.src = "../../assets/service-bell.wav";
+    audio.load();
+    audio.play();
   }
 
   incrementCounters() {

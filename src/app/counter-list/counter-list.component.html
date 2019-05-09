@@ -1,5 +1,6 @@
 <div style="display:flex;  align-items: center; flex-flow: column; width: 100%">
   <div><button (click)="AddCounter()">Add Counter</button></div>
+  <div><stats [count]="counters.length"></stats><stats [count]="colossalCounters.length + superCounters.length + superDuperCounters.length"></stats></div>
   <counter-detail class="counter" [count]="count" *ngFor="let count of counters"></counter-detail>
   <super-counter class="super" [count]="super" *ngFor="let super of superCounters"></super-counter>
   <super-duper class="super-duper" [count]="superDuper" *ngFor="let superDuper of superDuperCounters"></super-duper>
