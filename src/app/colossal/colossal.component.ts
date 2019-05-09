@@ -11,6 +11,7 @@ export class ColossalComponent implements OnInit {
   @Input() count:Counter;
   
   constructor() {
+    this.start()
    }
 
   start() {
