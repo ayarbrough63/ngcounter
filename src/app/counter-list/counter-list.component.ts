@@ -11,18 +11,23 @@ export class CounterListComponent implements OnInit {
   counters:Counter[];
   superCounters:Counter[];
   superDuperCounters:Counter[];
+  colossalCounters:Counter[];
 
   constructor() { 
     this.counters = [];
     this.superCounters = [];
     this.superDuperCounters = [];
+    this.colossalCounters = [];
   }
 
   AddCounter() {
-    
     if (this.counters.length === 6) {
       if (this.superCounters.length === 3) {
-        this.incrementSuperDuperCounters()
+        if (this.superDuperCounters.length === 3) {
+          this.incrementColossalCounters()
+        } else {
+          this.incrementSuperDuperCounters()
+        }
       } else {
         this.incrementSuperCounters()
       }
@@ -60,6 +65,27 @@ export class CounterListComponent implements OnInit {
     const superDuperCounter = new Counter();
     superDuperCounter.value = sumOfSuperCounters + sumOfCounters;
     this.superDuperCounters.push (superDuperCounter)
+    this.superCounters = []
+    this.counters = []
+  }
+
+  incrementColossalCounters() {
+    let sumOfCounters = 0;
+    for (const ctr of this.counters) {
+      sumOfCounters += ctr.value
+    }
+    let sumOfSuperCounters = 0;
+    for (const ctr of this.superCounters) {
+      sumOfSuperCounters += ctr.value
+    }
+    let sumOfSuperDuperCounters = 0;
+    for (const ctr of this.superDuperCounters) {
+      sumOfSuperDuperCounters += ctr.value
+    }
+    const colosslCounter = new Counter();
+    colosslCounter.value = sumOfSuperCounters + sumOfCounters + sumOfSuperDuperCounters;
+    this.colossalCounters.push (colosslCounter)
+    this.superDuperCounters = []
     this.superCounters = []
     this.counters = []
   }
